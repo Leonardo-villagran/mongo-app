@@ -1,0 +1,4 @@
+mongo-back/node_modules
+mongo-back/.env
+mongo-front/node_modules
+mongodb_data

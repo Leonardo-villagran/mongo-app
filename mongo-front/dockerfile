@@ -1,0 +1,17 @@
+# Usa una imagen de Node.js como base
+FROM node:latest
+
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copia el archivo package.json y package-lock.json al directorio de trabajo
+COPY package*.json ./
+
+# Instala las dependencias
+RUN npm install
+
+# Expone el puerto en el que el servidor de desarrollo de React escucha
+EXPOSE 3000
+
+# Comando para ejecutar el servidor de desarrollo de React
+CMD [ "npm", "start" ]

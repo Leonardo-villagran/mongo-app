@@ -1,0 +1,58 @@
+version: '3.9'
+
+services:
+  mongodb-container:
+    image: mongo:latest
+    container_name: mongodb-container
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: base_prueba # Nombre de la base de datos a crear
+    ports:
+      - "27020:27017"  # Puerto externo 27020 redirigido al puerto interno 27017 de MongoDB
+    volumes:
+      - ./mongodb_data:/data/db
+    networks:
+      - mongo-red
+
+  mongo-back:
+    build:
+      context: ./mongo-back
+    container_name: mongo-back
+    ports:
+      - "5000:5000"
+
+    environment:
+      PORT: 5000
+      DB_USER: admin
+      DB_PASSWORD: admin
+      DB_NAME: base_prueba
+      DB_HOST: mongodb-container # Nombre del servicio de MongoDB en el archivo Docker Compose
+      DB_PORT: 27017  # Puerto interno de la base de datos
+
+    depends_on:
+      - mongodb-container
+    volumes:
+      - ./mongo-back:/app
+    networks:
+      - mongo-red
+  
+  mongo-front:
+    build:
+      context: ./mongo-front
+    container_name: mongo-front
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./mongo-front:/app
+    depends_on:
+      - mongo-back
+    networks:
+      - mongo-red
+
+networks:
+  mongo-red:
+
+volumes:
+  mongodb_data: 
+    driver: local  
