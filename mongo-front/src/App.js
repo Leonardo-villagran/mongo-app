@@ -92,7 +92,7 @@ function App() {
         </div>
       </div>
 
-      <h2 className="my-4">Lista de Usuarios Registrados</h2>
+        <h2 className="my-4">Lista de Usuarios Registrado</h2>
       <ul className="list-unstyled">
         {users.map(user => (
           <li key={user._id} className="media mb-3" style={{ backgroundColor: '#333', padding: '10px', borderRadius: '5px' }}>

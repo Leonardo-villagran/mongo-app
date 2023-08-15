@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 3000
 
 # Comando para ejecutar el servidor de desarrollo de React
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "start-watch" ]

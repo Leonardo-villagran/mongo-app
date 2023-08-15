@@ -39,7 +39,7 @@ app.post('/users', async (req, res) => {
         });
 
         await newUser.save();
-        console.log("Usuario agregado.");
+        console.log("Usuario agregado ahora.");
         res.status(201).json(newUser);
     } catch (error) {
         res.status(500).json({ error: 'Error al crear un nuevo usuario' });
@@ -50,7 +50,7 @@ app.post('/users', async (req, res) => {
 app.get('/users', async (req, res) => {
     try {
         const users = await User.find();
-        console.log("Obtener usuarios.");
+        console.log("Obtener usuarios ahora.");
         res.json(users);
     } catch (error) {
         res.status(500).json({ error: 'Error al obtener los usuarios' });
@@ -67,7 +67,7 @@ app.delete('/users/:id', async (req, res) => {
         if (!deletedUser) {
             return res.status(404).json({ message: 'Usuario no encontrado' });
         }
-        console.log("Usuario borrado.");
+        console.log("Usuario borrado ahora..");
         res.status(200).json({ message: 'Usuario eliminado correctamente' });
     } catch (error) {
         console.error('Error al eliminar usuario:', error);
