@@ -2,7 +2,7 @@
 FROM node:latest
 
 # Establece el directorio de trabajo dentro del contenedor
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Copia el archivo package.json y package-lock.json al directorio de trabajo
 COPY package*.json ./
@@ -13,9 +13,11 @@ RUN npm install
 # Copia el resto del código fuente al directorio de trabajo
 COPY . .
 
+RUN npm install -g nodemon
+
 # Expone el puerto en el que la aplicación escucha
 EXPOSE 5000
 
 # Comando para ejecutar la aplicación
-CMD [ "npm", "run", "dev" ]
+CMD [ "npx", "nodemon" , "src/app.js" ]
 

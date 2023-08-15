@@ -30,10 +30,11 @@ services:
       DB_HOST: mongodb-container # Nombre del servicio de MongoDB en el archivo Docker Compose
       DB_PORT: 27017  # Puerto interno de la base de datos
 
+    volumes:
+      - ./mongo-back:/usr/src/app  # Monta el volumen para el backend
+      - /usr/src/app/node_modules  # Monta solo los node_modules del contenedor
     depends_on:
       - mongodb-container
-    volumes:
-      - ./mongo-back:/app
     networks:
       - mongo-red
   
@@ -44,7 +45,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./mongo-front:/app
+      - ./mongo-front:/usr/src/app  # Monta el volumen para el frontend
+      - /usr/src/app/node_modules  # Monta solo los node_modules del contenedor
     depends_on:
       - mongo-back
     networks:
