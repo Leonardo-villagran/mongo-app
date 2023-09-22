@@ -43,7 +43,7 @@ services:
       context: ./mongo-front
     container_name: mongo-front
     ports:
-      - "3000:3000"
+      - "3004:3000"
     volumes:
       - ./mongo-front:/usr/src/app  # Monta el volumen para el frontend
       - /usr/src/app/node_modules  # Monta solo los node_modules del contenedor

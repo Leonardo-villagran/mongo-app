@@ -18,7 +18,7 @@ Sigue estos pasos para utilizar el proyecto:
 1. Clona el repositorio a tu máquina local:
 
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/Leonardo-villagran/mongo-app
    ```
 
 2. Navega a la raíz del proyecto:
@@ -37,7 +37,7 @@ Sigue estos pasos para utilizar el proyecto:
 
 4. Accede a la aplicación en tu navegador web:
 
-   - Frontend en React: [http://localhost:3000](http://localhost:3000)
+   - Frontend en React: [http://localhost:3004](http://localhost:3004)
    - Backend en Express: [http://localhost:5000](http://localhost:5000)
 
 ## Capturas de pantalla
